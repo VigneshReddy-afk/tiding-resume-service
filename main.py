@@ -240,7 +240,9 @@ PROJECTS:
 === MANDATORY RULES — EVERY ONE MUST BE FOLLOWED ===
 
 SUMMARY — write 4 sentences naturally, like a senior recruiter wrote them:
-  1. X years of hands-on experience as a [job title] specializing in [2-3 key technologies for {target}].
+  1. Opening sentence about experience level. Calculate total years from the work experience dates provided.
+     - If total experience >= 2 years: "X years of hands-on experience as a [job title] specializing in [2-3 key technologies]."
+     - If total experience < 2 years OR no prior experience: DO NOT mention years at all. Instead open with something like "Emerging [job title] with a strong foundation in [2-3 key technologies], bringing hands-on industry experience at [company]." NEVER write "0 years" or "less than a year".
   2. Biggest career achievement with a specific, believable metric — e.g. "Led migration that cut infra costs by $180K/year" or "Built payment system processing $4M/month with 99.97% uptime".
   3. Core technical depth — specific frameworks, architecture patterns, tools the candidate masters.
   4. What makes them uniquely valuable for a {target} role at a {industry} company.
