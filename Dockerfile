@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.11-slim-bookworm
 
 # weasyprint needs these system libs for PDF rendering
 RUN apt-get update && apt-get install -y --no-install-recommends \
