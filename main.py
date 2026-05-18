@@ -15,10 +15,17 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import Response, JSONResponse
 from jinja2 import Template
 from pydantic import BaseModel
-from weasyprint import HTML as WeasyprintHTML
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("resume-service")
+
+log.info("Importing weasyprint...")
+try:
+    from weasyprint import HTML as WeasyprintHTML
+    log.info("weasyprint imported OK")
+except Exception as _wp_err:
+    log.error("weasyprint import FAILED: %s", _wp_err)
+    WeasyprintHTML = None
 
 app = FastAPI(title="Tiding Resume Service", version="1.0.0")
 
@@ -592,4 +599,6 @@ def _render_html(data: dict) -> str:
 
 
 def _html_to_pdf(html_str: str) -> bytes:
+    if WeasyprintHTML is None:
+        raise HTTPException(503, detail="weasyprint unavailable — check server logs")
     return WeasyprintHTML(string=html_str).write_pdf()
